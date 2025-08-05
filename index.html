@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTANA - Next Generation Security Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00ff88;
+            --secondary: #00ccff;
+            --accent: #0066ff;
+            --dark: #0a0a0a;
+            --darker: #050505;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(0,255,136,0.05) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+        }
+
+        .logo {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+
+        .tagline {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            opacity: 0.7;
+            line-height: 1.8;
+        }
+
+        /* Product Preview */
+        .products-preview {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,100,255,0.02) 50%, transparent 100%);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            opacity: 0.7;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .product-item:hover {
+            background: rgba(255,255,255,0.04);
+            transform: translateY(-5px);
+        }
+
+        .product-name {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .product-description {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Innovation Section */
+        .innovation {
+            padding: 6rem 2rem;
+            background: var(--darker);
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .innovation-item {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .innovation-value {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .innovation-label {
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Vision Section */
+        .vision {
+            padding: 8rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0,255,136,0.03) 0%, transparent 50%);
+        }
+
+        .vision-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            line-height: 2;
+            opacity: 0.9;
+        }
+
+        .vision-text strong {
+            color: var(--primary);
+        }
+
+        /* Coming Soon */
+        .coming-soon {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: var(--darker);
+        }
+
+        .launch-date {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            margin: 1rem;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-text {
+            opacity: 0.5;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .company-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .product-grid, .innovation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="logo">SISTANA</h1>
+            <p class="tagline">Beyond Traditional Security</p>
+            <p class="hero-description">
+                We are building the future of cybersecurity through advanced artificial intelligence. 
+                Our revolutionary approach eliminates the need for constant updates, cloud dependencies, 
+                and traditional rule-based detection methods.
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Preview -->
+    <section class="products-preview">
+        <h2 class="section-title">DUAL INTELLIGENCE PLATFORM</h2>
+        <p class="section-subtitle">Two breakthrough products. One unified vision.</p>
+        
+        <div class="product-grid">
+            <div class="product-item">
+                <h3 class="product-name">SecDefAI</h3>
+                <p class="product-description">
+                    Next-generation endpoint protection powered by autonomous artificial intelligence. 
+                    Operates completely offline with unprecedented efficiency and accuracy.
+                </p>
+            </div>
+            
+            <div class="product-item">
+                <h3 class="product-name">SecScanAI</h3>
+                <p class="product-description">
+                    Revolutionary security analytics platform that understands behavioral patterns 
+                    without predefined rules. True intelligence, not just correlation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section class="innovation">
+        <h2 class="section-title">INNOVATION METRICS</h2>
+        
+        <div class="innovation-grid">
+            <div class="innovation-item">
+                <span class="innovation-value">100%</span>
+                <span class="innovation-label">Offline Capable</span>
+            </div>
+            <div class="innovation-item">
+                <span class="innovation-value">Zero</span>
+                <span class="innovation-label">Updates Required</span>
+            </div>
+            <div class="innovation-item">
+                <span class="innovation-value">&lt;1s</span>
+                <span class="innovation-label">Response Time</span>
+            </div>
+            <div class="innovation-item">
+                <span class="innovation-value">AI</span>
+                <span class="innovation-label">Core Technology</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision">
+        <div class="vision-text">
+            <p>
+                Traditional security solutions have reached their limits. 
+                <strong>Signatures are obsolete.</strong> Rules are insufficient. 
+                Cloud dependencies create vulnerabilities.
+            </p>
+            <p style="margin-top: 2rem;">
+                We have developed a fundamentally different approach. 
+                Our artificial intelligence <strong>understands</strong> security, 
+                rather than simply matching patterns. This is not an evolution. 
+                It's a paradigm shift.
+            </p>
+        </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="coming-soon">
+        <p class="launch-date">DECEMBER 2025</p>
+        <p style="opacity: 0.7; margin-bottom: 3rem;">
+            The security industry will never be the same.
+        </p>
+        
+        <a href="mailto:contact@sistana.net" class="cta-button">Request Information</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-text">
+            <p>
+                Patent-pending technology. Proprietary artificial intelligence architecture.<br>
+                Developed entirely in-house with no external dependencies.
+            </p>
+        </div>
+        
+        <div class="company-info">
+            <p class="footer-text">
+                © 2024-2025 SISTANA LLC. All rights reserved.<br>
+                SecDefAI™ and SecScanAI™ are registered trademarks of SISTANA LLC.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
